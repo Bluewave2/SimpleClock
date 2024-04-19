@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 
 namespace SimpleClock
@@ -50,13 +51,20 @@ namespace SimpleClock
                 timer1.Stop();
                 btnPause.Text = "Restart";
             }
-            else 
+            else
             {
                 SetTime();
                 timer1.Start();
                 btnPause.Text = "Pause";
             }
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url = "https://github.com/Bluewave2/SimpleClock";
+            Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
+            linkLabel1.LinkVisited = true;
         }
     }
 }
